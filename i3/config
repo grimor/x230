@@ -18,7 +18,7 @@ new_window 1pixel
 new_float 1pixel
 
 bindsym $mod+Return exec --no-startup-id termite 
-bindsym $mod+Shift+Return exec termite -e tmux 
+bindsym $mod+Shift+Return exec --no-startup-id termite -e tmux 
 workspace_auto_back_and_forth yes
 hide_edge_borders smart
 
@@ -160,25 +160,26 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 bindsym $mod+m exec i3-msg bar mode toggle
 
-bar {
-        status_command i3status 
-        font pango: Monospace, Icon 10
-        position top
-        mode dock 
-        modifier Mod1 
-        colors {
-            background #080808 
-            statusline #cccccc
-            separator #808080
-            focused_workspace #080808 #222222 #cccccc
-            active_workspace #080808 #080808 #797979 
-            inactive_workspace #080808 #080808 #4F4F4F
-            urgent_workspace #080808 #080808 #EA4C59
-        }
-}
+# bar {
+#        status_command i3status 
+#        font pango: Monospace, Icon 10
+#        position top
+#        mode dock 
+#        modifier Mod1 
+#        colors {
+#            background #080808 
+#            statusline #cccccc
+#            separator #808080
+#            focused_workspace #080808 #222222 #cccccc
+#            active_workspace #080808 #080808 #797979 
+#            inactive_workspace #080808 #080808 #4F4F4F
+#            urgent_workspace #080808 #080808 #EA4C59
+#        }
+# }
 
 
 # Startup applications
+exec --no-startup-id $HOME/.config/polybar/polybar.sh
 exec --no-startup-id feh --bg-fill ~/.config/i3/bgg.jpg 
 exec --no-startup-id chromium 
 exec --no-startup-id nm-applet 
