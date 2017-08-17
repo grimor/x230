@@ -1,6 +1,6 @@
 #!/bin/sh
 lock() {
-    i3lock -c 000000 
+    slock 
 }
 
 case "$1" in
@@ -11,16 +11,16 @@ case "$1" in
         i3-msg exit
         ;;
     suspend)
-        lock && systemctl suspend
+        lock & sudo zzz 
         ;;
     hibernate)
-        lock && systemctl hibernate
+        lock & sudo ZZZ
         ;;
     reboot)
-        systemctl reboot
+        sudo reboot
         ;;
     shutdown)
-        systemctl poweroff
+        sudo poweroff
         ;;
     *)
         echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
